@@ -14,8 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib import admin
 from django.urls import path
 
+
+from shortener.views import kirr_redirect_view, KirrCBView
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path(r'admin/', admin.site.urls),
+    path(r'view-1/', kirr_redirect_view),   # 1.10 -> url(r'^view-1/$'
+    path(r'view-2/', KirrCBView.as_view()),
 ]
