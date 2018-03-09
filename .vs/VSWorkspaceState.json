@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\kirr",
+    "\\src\\shortener",
+    "\\src\\shortener\\migrations",
+    "\\src\\shortener\\utils"
+  ],
+  "SelectedNode": "\\src\\shortener\\migrations\\0002_auto_20180308_1518.py",
+  "PreviewInSolutionExplorer": false
+}
