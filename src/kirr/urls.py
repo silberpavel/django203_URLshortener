@@ -13,15 +13,22 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
+from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
+#from django.urls import include, path
+from shortener import views
 
-
-from shortener.views import kirr_redirect_view, KirrCBView
+from shortener.views import HomeView, kirr_redirect_view, KirrCBView
 
 urlpatterns = [
+    #path('', views.index, name='main-view'),
+    path('', HomeView.as_view()),
     path(r'admin/', admin.site.urls),
     path(r'view-1/', kirr_redirect_view),   # 1.10 -> url(r'^view-1/$'
     path(r'view-2/', KirrCBView.as_view()),
+
+
+    #path(r'\^a/[0-9]\*/', kirr_redirect_view),
+    #path(r'b/\^(?P<slug>[\w-]\+)/\$', KirrCBView.as_view()),
 ]
