@@ -1,11 +1,12 @@
 
-from django.conf import settings
+from django.conf import settings    # for static files
 from django.db import models
 
 # Create your models here.
 
 from .utils import code_generator, create_shortcode
 
+# static files value set, if is not it will set default
 SHORTCODE_MAX = getattr(settings, "SHORTCODE_MAX", 15)
 
 class KirrURLManager(models.Manager):
