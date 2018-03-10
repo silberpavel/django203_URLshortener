@@ -25,9 +25,9 @@ from shortener.views import kirr_redirect_view, KirrCBView, HomeView
 
 urlpatterns = [
     # url(r'', admin.site.urls.index),
-    url(r'^new-admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
     # url(r'^view-1/$', kirr_redirect_view), 
-    url(r'^a/(?P<slug>[\w-]+)/$', kirr_redirect_view, name='kirr_redirect_view'),    # Slug (?P<slug>[\w-]+)
+    url(r'^a/(?P<shortcode>[\w-]+)/$', kirr_redirect_view, name='kirr_redirect_view'),    # Slug (?P<slug>[\w-]+)
     # url(r'^view-2/$', KirrCBView.as_view()),
     url(r'^b/(?P<shortcode>[\w-]+)/$', KirrCBView.as_view(), name='KirrCBView'),  # Slug (?P<slug>[\w-]+)
 
