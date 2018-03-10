@@ -17,8 +17,11 @@ from django.conf.urls import url
 from django.contrib import admin
 # from django.urls import path
 
-
 from shortener.views import kirr_redirect_view, KirrCBView, HomeView
+
+# DO NOT DO
+# from shortener import views
+# from another_app import views
 
 urlpatterns = [
 
@@ -26,6 +29,13 @@ urlpatterns = [
     url(r'^new-admin/', admin.site.urls),
     url(r'^view-1/$', kirr_redirect_view),   
     url(r'^view-2/$', KirrCBView.as_view()),
+
+
+    # DO NOT DO
+    # url(r'^abc/$' 'shortener.view.kirr_redirect_view' ),
+    # url(r'^abc/$' views.kirr_redirect_view ),
+
+
 
 
     #path(r'\^a/[0-9]\*/', kirr_redirect_view),
