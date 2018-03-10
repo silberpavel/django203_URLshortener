@@ -7,8 +7,6 @@ from .models import KirrURL  # Query the Database with the Shortcode
 
 # function based view FBV
 def kirr_redirect_view(request, shortcode=None, *args, **kwargs):  
-    print('method is \n')
-    print(request.method)
     obj = get_object_or_404(KirrURL, shortcode=shortcode)
     return HttpResponse("Hello {sc}".format(sc=obj.url))
 
