@@ -17,19 +17,21 @@ from django.conf.urls import url
 from django.contrib import admin
 # from django.urls import path
 
-from shortener.views import kirr_redirect_view, KirrCBView, HomeView
+from shortener.views import kirr_redirect_view, KirrCBView, HomeView, test_view
 
 # DO NOT DO
 # from shortener import views
 # from another_app import views
 
 urlpatterns = [
-    # url(r'', admin.site.urls.index),
-    url(r'^admin/', admin.site.urls),
+    url(r'', admin.site.urls),
+    url(r'admin/', admin.site.urls),
+    url(r'^about123/$', test_view),
     # url(r'^view-1/$', kirr_redirect_view), 
-    url(r'^a/(?P<shortcode>[\w-]+)/$', kirr_redirect_view, name='kirr_redirect_view'),    # Slug (?P<slug>[\w-]+)
+    url(r'^a/(?P<shortcode>[\w-]+){6,15}$', kirr_redirect_view, name='kirr_redirect_view'),    # Slug (?P<slug>[\w-]+)
     # url(r'^view-2/$', KirrCBView.as_view()),
-    url(r'^b/(?P<shortcode>[\w-]+)/$', KirrCBView.as_view(), name='KirrCBView'),  # Slug (?P<slug>[\w-]+)
+    # Slug (?P<slug>[\w-]+)
+    url(r'^b/(?P<shortcode>[\w-]+){6,15}$', KirrCBView.as_view(), name='KirrCBView'),
 
     # DO NOT DO
     # url(r'^abc/$' 'shortener.view.kirr_redirect_view' ),
