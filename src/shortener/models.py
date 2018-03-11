@@ -32,7 +32,7 @@ class KirrURLManager(models.Manager):
 class KirrURL(models.Model):
     url         = models.CharField(max_length=220, )    # new field
     # unique=True => все shortcode must be unique
-    shortcode = models.CharField(max_length=SHORTCODE_MAX, blank=True)
+    shortcode = models.CharField(max_length=SHORTCODE_MAX, unique=True, blank=True)
     #shortcode = models.CharField(max_length=25, unique=True, default='http://www.gugul.com/')
 
     updated     = models.DateTimeField(auto_now=True) # everytime the model is saved

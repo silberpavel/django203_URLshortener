@@ -28,10 +28,10 @@ urlpatterns = [
     url(r'admin/', admin.site.urls),
     url(r'^about123/$', test_view),
     # url(r'^view-1/$', kirr_redirect_view), 
-    url(r'^a/(?P<shortcode>[\w-]+){6,15}$', kirr_redirect_view, name='kirr_redirect_view'),    # Slug (?P<slug>[\w-]+)
+    url(r'^a/(?P<shortcode>[\w-]+){5,15}$', kirr_redirect_view, name='kirr_redirect_view'),    # Slug (?P<slug>[\w-]+)
     # url(r'^view-2/$', KirrCBView.as_view()),
     # Slug (?P<slug>[\w-]+)
-    url(r'^b/(?P<shortcode>[\w-]+){6,15}$', KirrCBView.as_view(), name='KirrCBView'),
+    url(r'^b/(?P<shortcode>[\w-]+){5,15}$', KirrCBView.as_view(), name='KirrCBView'),
 
     # DO NOT DO
     # url(r'^abc/$' 'shortener.view.kirr_redirect_view' ),
