@@ -4,16 +4,26 @@ from django.views import View   # for class based view
 
 from .models import KirrURL  # Query the Database with the Shortcode
 
-def test_view(request):
-    return HttpResponse("some stuff")
 
+# fbv
+def home_view_fbv(request, *args, **kwargs):
+    if request.method == 'POST':
+        print(request.POST)
+    return render(request, "shortener/home.html", {})
 
-# function based view FBV
-def kirr_redirect_view(request, shortcode=None, *args, **kwargs):  
-    obj = get_object_or_404(KirrURL, shortcode=shortcode)
-    # do something
-    return HttpResponseRedirect(obj.url)
+# class based view
+class HomeView(View):  
+    def get(self, request, shortcode=None, *args, **kwargs):
+        return render(request, "shortener/home.html", {})
 
+    def post(self, request, *args, **kwargs):
+        # some_dict = {}
+        # some_dict['url']  # error
+        # some_dict.get('url', 'http://www.cnn.com/')  # none
+        # print(request.POST)
+        # print(request.POST["url"])
+        # print(request.POST.get("url"))
+        return render(request, "shortener/home.html", {})
 
  # class based view
 class KirrCBView(View): 
@@ -25,14 +35,6 @@ class KirrCBView(View):
         return HttpResponse()
 
 
-# class based view
-class HomeView(View):  
-
-    def get(self, request, *args, **kwargs):
-        return render(request, "shortener/home.html", {})
-
-    def post(self, request, *args, **kwargs):
-        return render(request, "shortener/home.html", {})
 
 
 

@@ -1,39 +1,15 @@
-"""kirr URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.conf.urls import url
 from django.contrib import admin
 # from django.urls import path
 
-from shortener.views import kirr_redirect_view, KirrCBView, HomeView, test_view
+from shortener.views import KirrCBView, HomeView
 
 # DO NOT DO
 # from shortener import views
 # from another_app import views
 
 urlpatterns = [
-    url(r'', admin.site.urls),
-    url(r'admin/', admin.site.urls),
-    url(r'^about123/$', test_view),
-    # url(r'^view-1/$', kirr_redirect_view), 
-    url(r'^a/(?P<shortcode>[\w-]+){5,15}$', kirr_redirect_view, name='kirr_redirect_view'),    # Slug (?P<slug>[\w-]+)
-    # url(r'^view-2/$', KirrCBView.as_view()),
-    # Slug (?P<slug>[\w-]+)
-    url(r'^b/(?P<shortcode>[\w-]+){5,15}$', KirrCBView.as_view(), name='KirrCBView'),
-
-    # DO NOT DO
-    # url(r'^abc/$' 'shortener.view.kirr_redirect_view' ),
-    # url(r'^abc/$' views.kirr_redirect_view ),
+    url(r'^admin/', admin.site.urls),
+    url(r'^$', HomeView.as_view()),
+    url(r'^(?P<shortcode>[\w-]+){5,15}/$', KirrCBView.as_view()),
 ]
