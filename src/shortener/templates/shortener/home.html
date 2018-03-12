@@ -1,8 +1,10 @@
-<div style='width: 800px; margin: 0 auto;'>
-    <h1>Hi there</h1>
+<div style='width: 200px; margin: 0 auto;'>
+    <h1>{{ title }}</h1>
 
-    <form method='POST' action="localhost:8000/admin">{% csrf_token %}
-        <input name="url" placeholder="Shorten your URL..." />
+    <form method='POST' action="localhost:8000/"> {% csrf_token %}
+
+        <!-- <input name="url" placeholder="Shorten your URL..." /> -->
+        {{ form.as_p}}
         <input type="submit" placeholder="Shorten" />
     </form>
 </div>

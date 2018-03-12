@@ -2,8 +2,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.views import View   # for class based view
 
+from forms import SubmitUrlForm
 from .models import KirrURL  # Query the Database with the Shortcode
-
 
 # fbv
 def home_view_fbv(request, *args, **kwargs):
@@ -14,16 +14,23 @@ def home_view_fbv(request, *args, **kwargs):
 # class based view
 class HomeView(View):  
     def get(self, request, shortcode=None, *args, **kwargs):
-        return render(request, "shortener/home.html", {})
+        the_form = SubmitUrlForm()
+        context = {
+            "title": "Submit URL",
+            "form": the_form
+        }
+        return render(request, "shortener/home.html", context)
 
     def post(self, request, *args, **kwargs):
-        # some_dict = {}
-        # some_dict['url']  # error
-        # some_dict.get('url', 'http://www.cnn.com/')  # none
-        # print(request.POST)
-        # print(request.POST["url"])
-        # print(request.POST.get("url"))
-        return render(request, "shortener/home.html", {})
+        form = SubmitUrlForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+
+        context = {
+            "title": "Submit URL",
+            "form": form
+        }
+        return render(request, "shortener/home.html", context)
 
  # class based view
 class KirrCBView(View): 
