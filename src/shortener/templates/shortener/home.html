@@ -1,11 +1,29 @@
-<div style='width: 300px; margin: 0 auto;'>
-    <h1>{{ title }}</h1>
+ {% extends "base.html" %}
 
-    <form method='POST' action='.'> {% csrf_token %}
+ {% block content %}
 
-        <!-- <input name="url" placeholder="Shorten your URL..." /> -->
-        {{ form.as_p}}
-        <input type="submit" placeholder="Shorten" />
-    </form>
+<h1 class="cover-heading">{{ title }}</h1>
+<p class="lead">Shortener that URL</p>
+<p class="lead">
+    <div class="col-sm-6 col-sm-offset-3">
+        <form method='POST' action='.'> {% csrf_token %}
+            <!-- <input name="url" placeholder="Shorten your URL..." /> -->
+            {{ form.as_p}}
+            <input class='btn btn-primary' type="submit" placeholder="Shorten" value=" Shorten -->"/>
+        </form>
+    </div>
+</p>
+
+<div class="container">
+    <div class="row">
+
+        <div class="text-center col-sm-12">
+
+
+
+        </div>
+    </div>
 </div>
+{% endblock content %}
+
 

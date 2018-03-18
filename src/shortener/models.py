@@ -1,6 +1,9 @@
-
 from django.conf import settings    # for static files
 from django.db import models
+
+# from django.core.urlresolvers import reverse
+from django.urls import reverse
+from django_hosts.resolvers import reverse
 
 # Create your models here.
 from .utils import code_generator, create_shortcode
@@ -52,3 +55,7 @@ class KirrURL(models.Model):
   
     def __unicode__(self):
         return str(self.url) 
+
+    def get_short_url(self):
+        url_path = reverse("scode", kwargs={'shortcode': self.shortcode}, host='www', scheme='http', port='8000')
+        return url_path

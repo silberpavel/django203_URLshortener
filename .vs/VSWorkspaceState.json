@@ -2,11 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\kirr",
+    "\\src\\analytics",
     "\\src\\shortener",
     "\\src\\shortener\\migrations",
     "\\src\\shortener\\utils"
   ],
-  "SelectedNode": "\\src\\shortener\\migrations\\0002_auto_20180308_1518.py",
+  "SelectedNode": "\\src\\shortener\\models.py",
   "PreviewInSolutionExplorer": false
 }
